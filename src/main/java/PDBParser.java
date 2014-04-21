@@ -40,19 +40,21 @@ public class PDBParser {
             int icount = 1;
             
             int num = groups.size();
-            for(int i=0; i<=num-1; i++)
+            for(int i=0; i<num-1; i++)
             {
                 Group gi = groups.get(i);   //get the amino acid in the position i
                 double[] giCrods = getCbCords(gi);
-                for(int j=i+1; j<=num; j++)
+                for(int j=i+1; j<=num-1; j++)
                 {
                     Group gj = groups.get(j); //get the amino acid in the position j
                     double[] gjCrods = getCbCords(gj);
                     double dist = calDistance(giCrods, gjCrods);
+                    //System.out.println("\t" + giCrods + "\t" + gjCrods + "\t" );
+                    System.out.println("\t\t" + i + "\t" + j + "\t" +Double.toString(dist) );
                 }
             }
             
-            for(Group group: groups)
+            /*for(Group group: groups)
             {
                 System.out.println("\t" + Integer.toString(icount) + "\t" + group.getType() + "\t" + group.getPDBName());
                 List<Atom> atoms = group.getAtoms();
@@ -61,7 +63,7 @@ public class PDBParser {
                     System.out.println("\t\t" + atom.getFullName() + "\t" + Double.toString(atom.getX()) + "\t" + Double.toString(atom.getY())+ "\t" + Double.toString(atom.getZ()));
                 }
                 icount++;
-            }
+            }*/
         }
         
     }
@@ -70,23 +72,36 @@ public class PDBParser {
     {
         //Here is an example!
         //create a array with double type
-        //double[] result = new Array();
+        double[] result = new double[3];
         
         //get all atoms from paramere group
-        //e.g. List<Atom> atoms = group.getAtoms();
+        List<Atom> atoms = group.getAtoms();
         
         double X,Y,Z;
+        String ca=" CA ";
+        String cb=" CB ";
         for (Atom at : atoms)
         {
-            if(at.getName() == "CA")
+           //System.out.println("caresult"+at.getFullName()+"caresult");
+            String str=at.getFullName();
+            if(ca.equals(str))
+            {
+                result[0]=at.getX();
+                result[1]=at.getY();
+                result[2]=at.getZ();//System.out.println("caresult"+result[0]);
+                
+                //return result;
+            } 
+            if(cb.equals(str))
             {
                 //get the X,Y,Z to result
+                result[0]=at.getX();
+                result[1]=at.getY();
+                result[2]=at.getZ();
+                
+                //return result;
             }
-            if(at.getName() == "CB")
-            {
-                //get the X,Y,Z to result
-            }
-            
+            //System.out.println("cbresult"+ "\t" + result[0] + "\t" + result[1] + "\t" + result[2]);
         }
         
         return result;
@@ -97,6 +112,10 @@ public class PDBParser {
         double result = -1;
         
         //calculating result = ....
+        // System.out.println(g1[0]+ "\t" + g2[0]+ "\t" + g1[1]+ "\t" +  g2[1]+ "\t" + g1[2]+ "\t" +g2[2]+ "\t" );
+        result = Math.sqrt( (g1[0] - g2[0])*(g1[0] - g2[0])+(g1[1] - g2[1])*(g1[1] - g2[1])+(g1[2] - g2[2])*(g1[2] - g2[2]) ) ;
+       
+         //System.out.println("g1"+g1[0]);
         
         return result;
     }

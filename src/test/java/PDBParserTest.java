@@ -32,7 +32,7 @@ public class PDBParserTest extends TestCase {
      */
     public void testTest() throws Exception {
         System.out.println("Test");
-        String pathToPDBFile = "D:\\workspace\\beta\\1A0S.pdb";
+        String pathToPDBFile = "F:\\1A0S.pdb";
         PDBParser instance = new PDBParser();
         instance.Test(pathToPDBFile);
         // TODO review the generated test code and remove the default call to fail.
