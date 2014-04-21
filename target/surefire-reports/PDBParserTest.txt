@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: PDBParserTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 15.072 sec <<< FAILURE!
+testTest(PDBParserTest)  Time elapsed: 7.186 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at PDBParserTest.testTest(PDBParserTest.java:39)
+testLoad(PDBParserTest)  Time elapsed: 2.956 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at PDBParserTest.testLoad(PDBParserTest.java:53)
+testGetChain(PDBParserTest)  Time elapsed: 3.336 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at PDBParserTest.testGetChain(PDBParserTest.java:67)
+testGetChains(PDBParserTest)  Time elapsed: 0 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at PDBParserTest.testGetChains(PDBParserTest.java:80)
+testGetGroups(PDBParserTest)  Time elapsed: 1.554 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: The test case is a prototype.
+	at junit.framework.Assert.fail(Assert.java:47)
+	at PDBParserTest.testGetGroups(PDBParserTest.java:94)
