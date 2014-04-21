@@ -68,6 +68,7 @@ public class PDBParser {
     
     public double[] getCbCords(Group group)
     {
+        //Here is an example!
         //create a array with double type
         //double[] result = new Array();
         
